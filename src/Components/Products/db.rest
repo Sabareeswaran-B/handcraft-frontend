@@ -1,0 +1,50 @@
+Post http://localhost:9000/product/create
+Content-Type: application/json
+
+{
+"productID" : "19PAGB01",
+"productName" : "Grey Self Design Single-Breasted Slim Fit Mens Party Suit",
+"brandName" : "Park Avenue",
+"specialPrice" : 9999,
+"MRP" :  16999,
+"offer" : "40%",
+"bestPrice" : 8999,
+"size" : ["36","38","40","42","44"],
+"specs" : [
+    {
+        "name":"Pattern", 
+        "value":"Self Design"
+    },{
+        "name":"Fabric", 
+        "value":"Terylene"
+    },{
+        "name":"Collar", 
+        "value":"Shawl Collar"
+    },{
+        "name":"Occasion", 
+        "value":"Party"
+    },{
+        "name":"Fit", 
+        "value":"Slim Fit"
+    },{
+        "name":"Sleeve Length", 
+        "value":"Long Sleeves"
+    },{
+        "name":"Bottom Closure", 
+        "value":"Button"
+    },{
+        "name":"Front Styling", 
+        "value":"Single-Breasted"
+    }
+],
+"images" : [
+    {"url" : "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11012440/2019/11/26/a6b316c6-2b54-421c-a084-a984a245ce261574769890542-Park-Avenue-Men-Suits-9541574769886551-1.jpg"},
+    {"url" : "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11012440/2019/11/26/0ff7edc7-74a9-4068-a14e-923bdae9b52b1574769890500-Park-Avenue-Men-Suits-9541574769886551-2.jpg"},
+    {"url" : "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11012440/2019/11/26/1adae51f-9a0a-4411-9d84-bce4dad4c4561574769890270-Park-Avenue-Men-Suits-9541574769886551-11.jpg"},
+    {"url" : "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11012440/2019/11/26/2b500fa8-ec49-4241-9765-692102505de71574769890346-Park-Avenue-Men-Suits-9541574769886551-6.jpg"},
+    {"url" : "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11012440/2019/11/26/ed9e6768-2d4e-4e31-b825-db619a08101d1574769890383-Park-Avenue-Men-Suits-9541574769886551-5.jpg"}
+],
+"productType" : "blazers",
+"soldby":"Park Avenue",
+"gender" : "men"
+}

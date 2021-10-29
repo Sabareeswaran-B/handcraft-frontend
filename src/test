@@ -1,0 +1,132 @@
+/* import React, { useState, useEffect } from "react";
+import Slider from "react-slick"
+import axios from "axios";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './App.css';
+
+const url = "http://localhost:8000/findAll";
+
+function App() {
+  const [photos, setPhotos] = useState([]);
+
+  useEffect(() => {
+    getphotoWithAxios();
+  }, []);
+
+  const getphotoWithAxios = async () => {
+    const response = await axios.get(url);
+    setPhotos(response.data);
+  };
+  const settings = {
+    className: 'slider',
+    dots: true,
+    arrows: true,
+    infinite: true, 
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
+  console.log(photos)
+  return (
+    <div>
+        <h1>React Slick</h1>
+        <Slider {...settings}>
+        {photos.map((photos) => {
+            return(
+              <div>
+                <img width= "100%" src={photos.image} alt = "Images"/>
+              </div>
+            )
+          })}
+        </Slider>
+      </div>
+  );
+}
+
+export default App; 
+
+// function SampleNextArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: 'block', background: 'red' }}
+//       onClick={onClick}
+//     />
+//   );
+// }
+
+// function SamplePrevArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: 'block', background: 'green' }}
+//       onClick={onClick}
+//     />
+//   );
+// } 
+*/
+
+
+
+import React, { Component, useState } from 'react';
+import { Nav, Navbar, DropdownItem, DropdownMenu, DropdownToggle,  UncontrolledDropdown, Form, Button, Input, ListGroup, ListGroupItem,  Modal, ModalHeader, ModalBody} from 'reactstrap';
+import logo from '../Image/gift-logo.png';
+import Login from '../Login/signin';
+import Signup from '../Login/signup';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../CSS/Header.css";
+
+function Header () {
+
+  const [signinModal, setSigninModal] = useState(false);
+  const [signupModal, setSignupModal] = useState(false);
+  const [query, setQuery] = useState(String);
+
+  const signintoggle = () => {
+    setSigninModal(!signinModal)
+  }
+
+  const signuptoggle = () => {
+    setSignupModal(!signupModal)
+  }
+
+  const searchHandler = (e) => {
+    setQuery(e.target.value)
+  }
+
+  return(
+    <header>
+      <Navbar>
+        <Nav>
+          <a href="/"><img src={logo} alt="logo" className="logo" /></a>
+          <Form action={`/product/search/${query}`} className="input-group search" method="GET">
+            <div className="input-group-btn">            
+              <Input type="text" className="form-control" placeholder="Search the product, Brand and More" name="search" id="search" onChange={searchHandler} />
+              <Button className="btn search-button"  type="submit">
+              <i className="fa fa-search" style={{fontSize : "20px"}} aria-hidden="true"></i>
+              </Button>            
+            </div>
+          </Form>
+          <Button onClick={signuptoggle} style={{marginRight:"15px"}}>Sign UP</Button>
+          <Button onClick={signintoggle}>Sign IN</Button>
+          <Modal isOpen={signupModal} toggle={signuptoggle}>
+              <ModalHeader toggle={signuptoggle}>SIGN UP</ModalHeader>
+              <ModalBody>
+              <Signup />
+              </ModalBody>
+          </Modal>
+          <Modal isOpen={signinModal} toggle={signintoggle}>
+              <ModalHeader toggle={signintoggle}>SIGN IN</ModalHeader>
+              <ModalBody>
+              <Login />
+              </ModalBody>
+          </Modal>
+        </Nav>
+      </Navbar>
+    </header>
+  )
+}
+
+export default Header
